@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Debug;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends DrawerActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spinner_iller;
     TextView il_vaka_sayisi_textView;
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        LayoutInflater inflater=LayoutInflater.from(this);
+        View view=inflater.inflate(R.layout.activity_main,null,false);
+        drawer.addView(view,0);
 
         spinner_iller=findViewById(R.id.spinner_iller);
         il_vaka_sayisi_textView=findViewById(R.id.il_vaka_sayisi_textView);

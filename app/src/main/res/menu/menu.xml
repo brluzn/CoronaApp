@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Grafikler"
+        android:id="@+id/action_grafikler"
+        android:icon="@drawable/graph"
+        />
+    <item
+        android:id="@+id/action_yasaklar"
+        android:icon="@drawable/novirus"
+        android:title="Yasaklar"
+        app:showAsAction="always|collapseActionView" />
+
+</menu>
