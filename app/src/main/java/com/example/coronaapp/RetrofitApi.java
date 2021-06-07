@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 
 public interface RetrofitApi {
 
-    @GET("ozanerturk/covid19-turkey-api/master/dataset/timeline.json")
-    Call<List<day>> getModelClass();
+    @GET("brluzn/special_template/master/corona_api")
+    Call<JSONResponse> ModelClass();
 
 }

@@ -7,10 +7,14 @@ import java.util.List;
 public class day {
 
 
-    @SerializedName("04/04/2020")
+    @SerializedName("day")
     private turkiye_gunluk turkiyeGunluk;
 
     public turkiye_gunluk getTurkiyeGunluk() {
         return turkiyeGunluk;
+    }
+
+    public void setTurkiyeGunluk(turkiye_gunluk turkiyeGunluk) {
+        this.turkiyeGunluk = turkiyeGunluk;
     }
 }
