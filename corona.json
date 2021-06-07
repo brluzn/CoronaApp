@@ -1,0 +1,49 @@
+{
+  "day": {
+
+    "patients": "1",
+    "totalPatients": "1",
+    "deaths": "0",
+    "totalDeaths": "0",
+    "recovered": "0",
+    "totalRecovered": "0",
+    "totalIntubated": "0",
+    "totalIntensiveCare": "0",
+    "tests": "0",
+    "totalTests": "0",
+    "date": "11/03/2020",
+    "critical": "",
+    "pneumoniaPercent": ""
+  },
+  "day": {
+    "date": "05/08/2020",
+    "totalTests": "5027308",
+    "totalPatients": "236112",
+    "totalDeaths": "5784",
+    "totalIntensiveCare": "",
+    "totalIntubated": "",
+    "totalRecovered": "219506",
+    "tests": "53842",
+    "patients": "1178",
+    "critical": "582",
+    "pneumoniaPercent": "%8,4",
+    "deaths": "19",
+    "recovered": "1015"
+  },
+  "day": {
+    "date": "06/06/2021",
+    "totalTests": "55455452",
+    "totalPatients": "5287980",
+    "totalDeaths": "48164",
+    "totalIntensiveCare": "",
+    "totalIntubated": "",
+    "totalRecovered": "5160774",
+    "tests": "204827",
+    "cases": "5386",
+    "patients": "482",
+    "critical": "1096",
+    "pneumoniaPercent": "%2,8",
+    "deaths": "96",
+    "recovered": "6003"
+  }
+}

@@ -42,7 +42,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        System.out.println(parent.getItemAtPosition(position).toString());
+       // System.out.println(parent.getItemAtPosition(position).toString());
         il_vaka_sayisi_textView.setText(parent.getItemAtPosition(position).toString()+"  : 88.78");
         il_neleryasak_text.setText(parent.getItemAtPosition(position).toString());
 
