@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,11 +9,212 @@
     tools:context=".GraphActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="BUGÜN"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="#E91E63"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:padding="10sp"
+
+        ></TextView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:background="#F1F1F1"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableLayout
+
+                android:layout_width="600dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white">
+
+                <TableRow
+                    android:gravity="center"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="5"
+                        android:background="#01BA08"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="Tarih"
+
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:background="#01BA08"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="Test Sayısı"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:background="#01BA08"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="Vaka"
+                        android:textColor="@color/white"
+
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="5"
+                        android:background="#01BA08"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="İyileşen"
+                        android:textColor="@color/white"
+
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="4"
+                        android:background="#01BA08"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="Vefat"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:background="#01BA08"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="Ağır Hasta"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+
+                </TableRow>
+                <TableRow
+                    android:gravity="center"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp">
+
+                    <TextView
+                        android:id="@+id/table_tarih1"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="5"
+                        android:background="#9DD0E6"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="6/06/2021"
+
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/table_testSayisi"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:background="#9DD0E6"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="107927"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/table_vaka"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:background="#9DD0E6"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="1497"
+                        android:textColor="@color/black"
+
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/table_iyilesen"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="5"
+                        android:background="#9DD0E6"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="947"
+                        android:textColor="@color/black"
+
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/table_vefat"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="4"
+                        android:background="#9DD0E6"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="45"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/table_agirhasta"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:background="#9DD0E6"
+                        android:gravity="center"
+                        android:padding="10sp"
+                        android:text="1071"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+</LinearLayout>
