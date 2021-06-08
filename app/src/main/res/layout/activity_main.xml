@@ -15,7 +15,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/spinner_xml"
         android:spinnerMode="dropdown" />
     <TextView
