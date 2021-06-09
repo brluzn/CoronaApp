@@ -10,4 +10,7 @@ public interface RetrofitApi {
     @GET("brluzn/special_template/master/corona_api")
     Call<JSONResponse> ModelClass();
 
+    @GET(".")
+    Call<il_gunluk> il_ModelClass();
+
 }
