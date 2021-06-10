@@ -4,16 +4,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#73ECE0"
-    android:padding="15dp"
+    android:background="#F69E32"
+
     >
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="15dp"
-        app:srcCompat="@drawable/ic_launcher_background"></ImageView>
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/tedbir"></ImageView>
+
     <TextView
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Türkiye Geneli :"
@@ -22,13 +27,6 @@
         android:textColor="@color/black"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dünya Geneli :"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        />
+
 
 </LinearLayout>

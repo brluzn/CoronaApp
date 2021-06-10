@@ -33,7 +33,7 @@
         <item>Hakkari</item>
         <item>Hatay</item>
         <item>Isparta</item>
-        <item>İçel</item>
+        <item>Mersin</item>
         <item>İstanbul</item>
         <item>İzmir</item>
         <item>Kars</item>
@@ -83,4 +83,87 @@
         <item>Osmaniye</item>
         <item>Düzce</item>
     </string-array>
+    <integer-array name="cityPopulationList">
+        <item>2258718</item>
+        <item>632459</item>
+        <item>736912</item>
+        <item>535435</item>
+        <item>335494</item>
+        <item>5663322</item>
+        <item>2548308</item>
+        <item>169501</item>
+        <item>1119084</item>
+        <item>1240285</item>
+        <item>218717</item>
+        <item>281768</item>
+        <item>350994</item>
+        <item>314802</item>
+        <item>267092</item>
+        <item>3101833</item>
+        <item>541548</item>
+        <item>192428</item>
+        <item>530126</item>
+        <item>1040915</item>
+        <item>1783431</item>
+        <item>407763</item>
+        <item>587960</item>
+        <item>234431</item>
+        <item>758279</item>
+        <item>888828</item>
+        <item>2101157</item>
+        <item>448721</item>
+        <item>141702</item>
+        <item>280514</item>
+        <item>1659320</item>
+        <item>440304</item>
+        <item>1868757</item>
+        <item>15462452</item>
+        <item>4394694</item>
+        <item>284923</item>
+        <item>376377</item>
+        <item>1421455</item>
+        <item>361737</item>
+        <item>243042</item>
+        <item>1997258</item>
+        <item>2250020</item>
+        <item>576688</item>
+        <item>806156</item>
+        <item>1450616</item>
+        <item>1168163</item>
+        <item>854716</item>
+        <item>1000773</item>
+        <item>411117</item>
+        <item>304962</item>
+        <item>362071</item>
+        <item>761400</item>
+        <item>344359</item>
+        <item>1042649</item>
+        <item>1356079</item>
+        <item>331070</item>
+        <item>216460</item>
+        <item>635889</item>
+        <item>1081065</item>
+        <item>597861</item>
+        <item>811901</item>
+        <item>83443</item>
+        <item>2115256</item>
+        <item>369433</item>
+        <item>1149342</item>
+        <item>419095</item>
+        <item>591204</item>
+        <item>423011</item>
+        <item>81910</item>
+        <item>254919</item>
+        <item>278703</item>
+        <item>620278</item>
+        <item>537762</item>
+        <item>198979</item>
+        <item>96161</item>
+        <item>201314</item>
+        <item>276050</item>
+        <item>243614</item>
+        <item>142792</item>
+        <item>548556</item>
+        <item>395679</item>
+    </integer-array>
 </resources>

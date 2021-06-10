@@ -74,95 +74,346 @@
         android:background="@drawable/neler_yasak_xml"
         android:orientation="vertical">
         
-        
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Haftasonu Sokağa Çıkmak :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Akşam Sokağa Çıkmak :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="+65 ve 20 Yaş :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Okul Öncesi :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="İlkokul :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="8 ve 12. Sınıflar :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Orta Okullar :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Restoranlar :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Halısaha ve Havuzlar :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Kamu :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="Nikah :"
-            android:textColor="@color/purple_500"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Haftasonu Sokağa Çıkmak :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Akşam Sokağa Çıkmak :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="65 yaş ve üstü :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 yaş ve altı :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Okul Öncesi :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="İlkokul :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8. ve 12. Sınıflar :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orta Okullar :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Liseler :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restoranlar:"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Halısaha ve Havuzlar:"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kamu :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nikah :"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/text_yasak13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:drawableEnd="@drawable/ic_baseline_check_circle_24"
+                android:text="null"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>
