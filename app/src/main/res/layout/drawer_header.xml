@@ -16,16 +16,112 @@
         android:scaleType="fitXY"
         app:srcCompat="@drawable/tedbir"></ImageView>
 
-    <TextView
-        android:padding="5dp"
-        android:layout_marginTop="5dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Türkiye Geneli :"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        />
+        android:background="#DA9494"
+        android:orientation="horizontal">
+        <TextView
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Toplam Vaka  :"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="null"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:id="@+id/text_toplam_vaka"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6BE36F"
+        android:orientation="horizontal">
+        <TextView
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Toplam İyileşen  :"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="null"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:id="@+id/text_toplam_iyilesen"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFEB3B"
+        android:orientation="horizontal"
+
+        >
+        <TextView
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Toplam Vefat  :"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="null"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:id="@+id/text_toplam_vefat"
+            />
+
+    </LinearLayout>
 
 
 

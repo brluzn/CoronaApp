@@ -29,6 +29,7 @@
         android:id="@+id/nav_view"
         android:fitsSystemWindows="true"
         app:menu="@menu/menu"
+        android:theme="@style/DrawerTextStyle"
         app:headerLayout="@layout/drawer_header"
         />
 

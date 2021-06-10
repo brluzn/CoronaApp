@@ -11,16 +11,21 @@ import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,6 +81,7 @@ public class GraphActivity extends DrawerActivity {
                 System.out.println(modelclassList.get(modelclassList.size()-1).getDate());
                 BarChart(modelclassList);
                 PieChart(modelclassList);
+                LineChart(modelclassList);
                 if (modelclassList.size()>0){
                     Textview_Setups();
 
@@ -85,6 +91,8 @@ public class GraphActivity extends DrawerActivity {
                     table_testSayisi.setText(modelclassList.get(modelclassList.size()-1).getTests());
                     table_vaka.setText(modelclassList.get(modelclassList.size()-1).getPatients());
                     table_vefat.setText(modelclassList.get(modelclassList.size()-1).getDeaths());
+
+
                 }
 
             }
@@ -105,6 +113,10 @@ public class GraphActivity extends DrawerActivity {
         table_iyilesen=findViewById(R.id.table_iyilesen);
         table_vaka=findViewById(R.id.table_vaka);
         table_vefat=findViewById(R.id.table_vefat); //textviewlerin eşleştirmesini sagladık
+
+
+
+
     }
 
     public void BarChart(List<turkiye_gunluk> modelclassList){
@@ -164,6 +176,49 @@ public class GraphActivity extends DrawerActivity {
         legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);  //Set the legend horizontal display
         legend.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP); //top
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT); //Right to it
+
+
+    }
+
+    public void LineChart(List<turkiye_gunluk> modelclassList){
+        LineChart lineChart=findViewById(R.id.lineChart);
+
+
+
+        ArrayList<Entry> values1=new ArrayList<>();
+        for (int i=0;i<modelclassList.size();i++){
+            values1.add(new Entry(i,Integer.parseInt(modelclassList.get(i).getPatients())));
+        }
+
+        LineDataSet gunluk_vaka=new LineDataSet(values1,"Gunluk Hasta Sayısı");
+        gunluk_vaka.setColor(Color.RED);
+        gunluk_vaka.setCircleColor(Color.RED);
+
+
+
+
+        ArrayList<Entry> values2=new ArrayList<>();
+        for (int i=0;i<modelclassList.size();i++){
+            values2.add(new Entry(i,Integer.parseInt(modelclassList.get(i).getDeaths())));
+
+        }
+        LineDataSet gunluk_vefat=new LineDataSet(values2,"Vefat");
+
+
+        ArrayList<Entry> values3=new ArrayList<>();
+        for (int i=0;i<modelclassList.size();i++){
+            values3.add(new Entry(i,Integer.parseInt(modelclassList.get(i).getRecovered())));
+        }
+
+        LineDataSet gunluk_iyilesen=new LineDataSet(values3,"İyileşen");
+        gunluk_iyilesen.setColor(Color.GREEN);
+        gunluk_iyilesen.setCircleColor(Color.GREEN);
+
+        LineData data=new LineData(gunluk_vaka,gunluk_vefat,gunluk_iyilesen);
+        lineChart.setData(data);
+        lineChart.invalidate();
+
+
 
 
     }
