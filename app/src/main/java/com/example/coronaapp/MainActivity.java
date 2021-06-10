@@ -39,12 +39,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.coronaapp.R.*;
 import static com.example.coronaapp.R.id.text_gunluk_ortalama;
 
-public class MainActivity extends DrawerActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends DrawerActivity implements AdapterView.OnItemSelectedListener {        //yan menuyu her aktivitede görmek için extend ediyoruz
 
     Spinner spinner_iller;
     TextView il_vaka_sayisi_textView;
     TextView il_neleryasak_text;
-    static il_gunluk il_veri;
+    static il_gunluk il_veri;                               //xml dosyalarında oluşturduğumuz görsel nesneleri (buton ,text vs) tanımlıyoruz
     ProgressDialog progressDialog;
     TextView text_yasak1,text_yasak2,text_yasak3,text_yasak4,text_yasak5,text_yasak6,text_yasak7,text_yasak8,text_yasak9,text_yasak10,text_yasak11,text_yasak12,text_yasak13;
     public static List<City> iller;
@@ -57,24 +57,24 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater=LayoutInflater.from(this);
-        View view=inflater.inflate(layout.activity_main,null,false);
+        View view=inflater.inflate(layout.activity_main,null,false);    //burada drawer ı kullandığımız için xml dosyasını infalate ediyoruz
         drawer.addView(view,0);
 
         spinner_iller=findViewById(id.spinner_iller);
-        il_vaka_sayisi_textView=findViewById(id.il_vaka_sayisi_textView);
+        il_vaka_sayisi_textView=findViewById(id.il_vaka_sayisi_textView);   //görsel nesneleri ID leri yardımıyla erişiyoruz
         il_neleryasak_text=findViewById(id.il_neleryasak_text);
 
-        //System.out.println(nufus.get(0)[0]);
 
-        ArrayAdapter<CharSequence> arrayAdapter=ArrayAdapter.createFromResource(this, array.cityArrayList, layout.style_spinner);
+
+        ArrayAdapter<CharSequence> arrayAdapter=ArrayAdapter.createFromResource(this, array.cityArrayList, layout.style_spinner);   //string.xml dosyasında oluşturduğumuz illerin isminin bulunduğu diziyi getiriyrouz
         arrayAdapter.setDropDownViewResource(layout.support_simple_spinner_dropdown_item);
-        spinner_iller.setAdapter(arrayAdapter);
+        spinner_iller.setAdapter(arrayAdapter);     //illerin isimlerini spinner da gösteriyoruz
 
-        spinner_iller.setOnItemSelectedListener(this);
+        spinner_iller.setOnItemSelectedListener(this);  //spinner da seçilen veriye tıklanınca  işlem yapılacağını belirttik yapılacak aşağı fonksiyonlarda
 
 
 
-        ///iller retrofit işlemleri
+
 
 
 
@@ -83,22 +83,20 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        System.out.println(position);
-        /*il_vaka_sayisi_textView.setText(parent.getItemAtPosition(position).toString()+"  : 88.78");
-        il_neleryasak_text.setText(parent.getItemAtPosition(position).toString());*/
-        String il_isim=parent.getItemAtPosition(position).toString();
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {       //spinnerdan seçilen verilerin yapılacak işlemler
+
+
+        String il_isim=parent.getItemAtPosition(position).toString();   //position bilgisi seçilen ilin sırası işleri onun üzeridnen gerçekleştireceğiz
 
 
 
-
-         class Veri extends AsyncTask<Void,Void,Void>{
+         class Veri extends AsyncTask<Void,Void,Void>{   //burada illerin vaka oranlarını JSOUP kütüphanesi ile çekme işlemelri
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
                 progressDialog=new ProgressDialog(MainActivity.this);
-                progressDialog.show();
+                progressDialog.show();                                                  //veri çekme işlemleri başladığı anda progress bar çalışmaya başlıyor
                 progressDialog.setContentView(layout.progress_dialog);
                 progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             }
@@ -106,7 +104,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
             @Override
             protected void onPostExecute(Void unused) {
                 super.onPostExecute(unused);
-                progressDialog.dismiss();
+                progressDialog.dismiss();           //veri çekme işlemi bitince progress bar kapatılıyor
             }
 
             @Override
@@ -116,44 +114,38 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
 
             @Override
             protected Void doInBackground(Void... voids) {
-                String url="https://covid19.saglik.gov.tr/";
+                String url="https://covid19.saglik.gov.tr/";    //verilein çekileceği URL
 
                 try {
                     Document doc = Jsoup.connect(url).get();
-                    Element table=doc.select("tbody").get(0);
+                    Element table=doc.select("tbody").get(0);   //sitenin hangi html etiketinin çekilecği biz tabloyu seçtik
 
-                    Elements rows=table.select("tr");
-                    for (Element row:rows){
-                        /*String name=row.select("td").get(0).text();
-                        String ratio=row.select("td").get(1).text();
-                        */
+                    Elements rows=table.select("tr");   //seçilen tablonun satırlarını seçiyoruz
+                    for (Element row:rows){     //seçilen satırları tek tek geziyoruz
 
-                        if (row.select("td").get(0).text().equals(il_isim)){
-                            String name=row.select("td").get(0).text();
-                            String ratio=row.select("td").get(1).text();
-                            System.out.println("Bu şehir"+name);
+                        if (row.select("td").get(0).text().equals(il_isim)){ //eğer spinnerdan seçilen ile tablonun satırındaki isim eşit ise
+                            String name=row.select("td").get(0).text();     //seçilen ilin ismi
+                            String ratio=row.select("td").get(1).text();    //seçilenn ilin vaka oranı
+
                             il_vaka_sayisi_textView.setText(ratio);
-                            il_neleryasak_text.setText(name);
+                            il_neleryasak_text.setText(name);       //giriş ekranında seçilen ilin bilgileri yazıyoruz
                             c=new City(name,ratio);
 
                             runOnUiThread(new Runnable() {
 
                                 @Override
                                 public void run() {
-                                    String result = ratio.split(",")[0]+"."+ratio.split(",")[1];
-                                    // Stuff that updates the UI
-                                    Yasaklar_Neler(result);
-                                    System.out.println("sayi" + result);
-                                    Vaka_Sayilari(result,position);
+                                    String result = ratio.split(",")[0]+"."+ratio.split(",")[1];//vaka oranı virgül ile(10,92) ayrıldığından floata çevirilemiyor o kısmın düzeltmek için (10.92)
+
+                                    Yasaklar_Neler(result);     //yasakların neler olduğunu yazdıracak fonk
+
+                                    Vaka_Sayilari(result,position); //gunluk ve haftalık ortalama vaka sayıların hesaplayığ yazdıran fonk
 
                                 }
                             });
                         }
 
                     }
-
-
-
 
 
                 } catch (IOException e) {
@@ -168,7 +160,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
 
 
         Veri veri=new Veri();
-        veri.execute();
+        veri.execute();         //Veri çekme işlemlerini oluşturan class ı çalıştırıyoruz
         progressDialog.dismiss();
 
 
@@ -184,7 +176,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
     public void Yasaklar_Neler(String vaka_sayisi){
         text_risk_durumu=findViewById(id.text_risk_durumu);
 
-        float vaka= Float.parseFloat(vaka_sayisi);
+        float vaka= Float.parseFloat(vaka_sayisi);  //alınan stringi float a çvirme
         if (0<=vaka && vaka<20){
             //düşük riskli il
             Yasaklar_setText("Serbest ","Yasak ","Serbest ","Serbest ","Açık ","Açık ","Açık ","Açık ","Açık "
@@ -216,8 +208,6 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
             text_risk_durumu.setText("ÇOK YÜKSEK RİSKLİ");
             text_risk_durumu.setTextColor(getResources().getColor(color.orange));
         }
-
-
 
 
 
@@ -322,7 +312,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
             }else{
                 text_yasak11.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawable.ic_baseline_cancel_24, 0);
             }
-        }
+        } //yasakların yanında bulunan iconların dğişiminin sağlanması
 
 
 
@@ -334,7 +324,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
         float vaka_orani= Float.parseFloat(ratio);
         List<int[]> nufus=Arrays.asList(getResources().getIntArray(array.cityPopulationList));//illerin nufüs bilgileri string.xml den alındı
 
-        int gunluk_ortalama=Math.round((nufus.get(0)[pos]/100000)*vaka_orani)/7;
+        int gunluk_ortalama=Math.round((nufus.get(0)[pos]/100000)*vaka_orani)/7;//ort vaka sayıları nufusa göre hesaplandı
         int haftalik_ortalama=Math.round((nufus.get(0)[pos]/100000)*vaka_orani);
         text_gunluk_ortalama=findViewById(id.text_gunluk_ortalama);
         text_haftalik_ortalama=findViewById(id.text_haftalik_ortalama);

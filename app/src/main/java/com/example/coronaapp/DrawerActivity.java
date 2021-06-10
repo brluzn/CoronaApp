@@ -34,7 +34,7 @@ public class DrawerActivity extends AppCompatActivity  implements NavigationView
     Toolbar toolbar;
     NavigationView nav_view;
     ActionBarDrawerToggle toggle;
-    public List<turkiye_gunluk> modelclassList2;
+    public List<turkiye_gunluk> modelclassList2;    //xml dosyalarında oluşturduğumuz görsel nesneleri (buton ,text vs) tanımlıyoruz
     TextView text_toplam_vaka;
     TextView text_toplam_iyilesen;
     TextView text_toplam_vefat;
@@ -56,7 +56,7 @@ public class DrawerActivity extends AppCompatActivity  implements NavigationView
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/")
+                .baseUrl("https://raw.githubusercontent.com/")          //drawer menude yazan bilgieleri almak için RETROFIT ile verileri çektik
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -79,7 +79,7 @@ public class DrawerActivity extends AppCompatActivity  implements NavigationView
                     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
                     View headerView = navigationView.getHeaderView(0);
                     text_toplam_iyilesen = (TextView) headerView.findViewById(R.id.text_toplam_iyilesen);
-                    text_toplam_vaka = (TextView) headerView.findViewById(R.id.text_toplam_vaka);
+                    text_toplam_vaka = (TextView) headerView.findViewById(R.id.text_toplam_vaka);               //drawer_header a yazılack veriler ve yazdırma işlemleri
                     text_toplam_vefat = (TextView) headerView.findViewById(R.id.text_toplam_vefat);
 
                     text_toplam_iyilesen.setText(modelclassList2.get(modelclassList2.size()-1).getTotalRecovered());
@@ -105,11 +105,11 @@ public class DrawerActivity extends AppCompatActivity  implements NavigationView
         //menu itemlerine tıklanınca ne olacak belirliyoruz
 
         if (item.getItemId()==R.id.action_grafikler){
-            Intent intent=new Intent(DrawerActivity.this,GraphActivity.class);
+            Intent intent=new Intent(DrawerActivity.this,GraphActivity.class);  //grafikler aktivitesine git
             startActivity(intent);
         }
         if (item.getItemId()==R.id.action_yasaklar){
-            Intent intent=new Intent(DrawerActivity.this,MainActivity.class);
+            Intent intent=new Intent(DrawerActivity.this,MainActivity.class);     //yasaklar aktivitesine git
             startActivity(intent);
         }
 
