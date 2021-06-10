@@ -3,6 +3,7 @@ package com.example.coronaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Debug;
 import android.view.LayoutInflater;
@@ -14,9 +15,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,8 +43,9 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
     static il_gunluk il_veri;
     ProgressDialog progressDialog;
     TextView text_yasak1,text_yasak2,text_yasak3,text_yasak4,text_yasak5,text_yasak6,text_yasak7,text_yasak8,text_yasak9,text_yasak10,text_yasak11,text_yasak12,text_yasak13;
+    public static List<City> iller;
 
-
+    public City c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +72,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
 
 
 
+
     }
 
     @Override
@@ -69,57 +82,88 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
         il_neleryasak_text.setText(parent.getItemAtPosition(position).toString());*/
         String il_isim=parent.getItemAtPosition(position).toString();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://covid-turkey-case-ratio.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+
+
+
+         class Veri extends AsyncTask<Void,Void,Void>{
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(Void unused) {
+                super.onPostExecute(unused);
+            }
+
+            @Override
+            protected void onCancelled() {
+                super.onCancelled();
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                String url="https://covid19.saglik.gov.tr/";
+
+                try {
+                    Document doc = Jsoup.connect(url).get();
+                    Element table=doc.select("tbody").get(0);
+
+                    Elements rows=table.select("tr");
+                    for (Element row:rows){
+                        /*String name=row.select("td").get(0).text();
+                        String ratio=row.select("td").get(1).text();
+                        */
+
+                        if (row.select("td").get(0).text().equals(il_isim)){
+                            String name=row.select("td").get(0).text();
+                            String ratio=row.select("td").get(1).text();
+                            System.out.println("Bu şehir"+name);
+                            il_vaka_sayisi_textView.setText("Vaka Sayısı : "+ratio);
+                            il_neleryasak_text.setText(name);
+                            c=new City(name,ratio);
+
+                            runOnUiThread(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    String result = ratio.split(",")[0];
+                                    // Stuff that updates the UI
+                                    Yasaklar_Neler(result);
+                                    System.out.println("sayi" + result);
+
+                                }
+                            });
+                        }
+
+                    }
+
+
+
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+
+
 
         progressDialog=new ProgressDialog(MainActivity.this);
         progressDialog.show();
         progressDialog.setContentView(R.layout.progress_dialog);
         progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        iller=new ArrayList<>();
+        Veri veri=new Veri();
+        veri.execute();
+        progressDialog.dismiss();
 
 
-        RetrofitApi retrofitApi = retrofit.create(RetrofitApi.class);
-        Call<il_gunluk> call = retrofitApi.il_ModelClass();
-        call.enqueue(new Callback<il_gunluk>() {
-            @Override
-            public void onResponse(Call<il_gunluk> call, Response<il_gunluk> response) {
-
-                if (!response.isSuccessful())
-                {
-                    System.out.println("error");
-
-                }
-
-                if (response.isSuccessful()){
-                    il_veri =response.body();
 
 
-                /*System.out.println(il_veri.getCities().get(1).getName());
-                System.out.println(il_veri.getCities().get(1).getCaseRatio());
-                System.out.println(il_veri.getCities().size());*/
-
-                    for (int i=0;i<il_veri.getCities().size();i++){
-                        if (il_veri.getCities().get(i).getName().equals(il_isim)){
-                            System.out.println("Bu şehir"+il_veri.getCities().get(i).getName());
-                            il_vaka_sayisi_textView.setText("Vaka Sayısı : "+il_veri.getCities().get(i).getCaseRatio());
-                            il_neleryasak_text.setText(il_veri.getCities().get(i).getName());
-                            Yasaklar_Neler(il_veri.getCities().get(i).getCaseRatio(),i);
-                        }
-                    }
-                }
-
-
-                progressDialog.dismiss();
-
-            }
-
-            @Override
-            public void onFailure(Call<il_gunluk> call, Throwable t) {
-                System.out.println("error Failure");
-            }
-        });
     }
 
     @Override
@@ -127,9 +171,9 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
 
     }
 
-    public void Yasaklar_Neler(String vaka_sayisi,int pos){
+    public void Yasaklar_Neler(String vaka_sayisi){
 
-        int vaka=Integer.parseInt(vaka_sayisi);
+        int vaka= Integer.parseInt(vaka_sayisi);
         if (0<=vaka && vaka<20){
             //düşük riskli il
             Yasaklar_setText("Serbest ","Yasak ","Serbest ","Serbest ","Açık ","Açık ","Açık","Açık ","Açık "
@@ -150,7 +194,7 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
             //çok yüksek riskli il
 
             Yasaklar_setText("Serbest ","Yasak ","Serbest ","Serbest ","Açık ","Açık ","Açık","Açık ","Açık "
-                    ,"Kapal","Kapal","Normal ","50 kisiye kadar 1 saat" );
+                    ,"Kapalı","Kapalı","Normal ","50 kisiye kadar 1 saat" );
         }
 
 
@@ -193,7 +237,9 @@ public class MainActivity extends DrawerActivity implements AdapterView.OnItemSe
     }
 
 
+    public void VerileriAl(){
 
+    }
 
 
 

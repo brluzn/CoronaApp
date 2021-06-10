@@ -12,6 +12,11 @@ public class City {
     @Expose
     private String caseRatio;
 
+    public City(String name, String caseRatio) {
+        this.name = name;
+        this.caseRatio = caseRatio;
+    }
+
     public String getName() {
         return name;
     }
