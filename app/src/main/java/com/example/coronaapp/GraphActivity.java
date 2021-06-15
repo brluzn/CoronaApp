@@ -85,7 +85,7 @@ public class GraphActivity extends DrawerActivity {
                     table_agirHasta.setText(modelclassList.get(modelclassList.size()-1).getCritical()); //bilgileri textlere yazdırdık
                     table_iyilesen.setText(modelclassList.get(modelclassList.size()-1).getRecovered());
                     table_testSayisi.setText(modelclassList.get(modelclassList.size()-1).getTests());
-                    table_vaka.setText(modelclassList.get(modelclassList.size()-1).getPatients());
+                    table_vaka.setText(modelclassList.get(modelclassList.size()-1).getCases());
                     table_vefat.setText(modelclassList.get(modelclassList.size()-1).getDeaths());
 
 

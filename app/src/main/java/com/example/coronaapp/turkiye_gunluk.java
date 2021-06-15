@@ -17,11 +17,12 @@ public class turkiye_gunluk {
     public String date;
     public String critical;
     public String pneumoniaPercent;
+    public String cases;
 
     public turkiye_gunluk() {
     }
 
-    public turkiye_gunluk(String patients, String totalPatients, String deaths, String totalDeaths, String recovered, String totalRecovered, String totalIntubated, String totalIntensiveCare, String tests, String totalTests, String date, String critical, String pneumoniaPercent) {
+    public turkiye_gunluk(String patients, String totalPatients, String deaths, String totalDeaths, String recovered, String totalRecovered, String totalIntubated, String totalIntensiveCare, String tests, String totalTests, String date, String critical, String pneumoniaPercent, String cases) {
         this.patients = patients;
         this.totalPatients = totalPatients;
         this.deaths = deaths;
@@ -35,8 +36,8 @@ public class turkiye_gunluk {
         this.date = date;
         this.critical = critical;
         this.pneumoniaPercent = pneumoniaPercent;
+        this.cases = cases;
     }
-
 
     public String getPatients() {
         return patients;
@@ -142,4 +143,11 @@ public class turkiye_gunluk {
         this.pneumoniaPercent = pneumoniaPercent;
     }
 
+    public String getCases() {
+        return cases;
+    }
+
+    public void setCases(String cases) {
+        this.cases = cases;
+    }
 }
