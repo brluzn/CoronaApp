@@ -20,7 +20,8 @@
 
 ## UI
 
-![newsapp](https://user-images.githubusercontent.com/42109123/126251519-dc84c425-adf8-430b-b4cc-3a27555bd7a2.gif)
+![b4ed54425e2e2874c7964a040bdd0c5f572221fc](https://user-images.githubusercontent.com/42109123/126912317-35eb3725-da22-43ad-bf1e-f9d4314e6cf0.gif)
+
 
 - Youtube : https://youtu.be/G4aECF3eB8E
 
