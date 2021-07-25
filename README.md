@@ -1,19 +1,22 @@
-# CoronaApp
 
-
-<h1 align="center">NewsApp</h1>
+<h1 align="center">CoronaApp</h1>
 
 ## Description
 
 ### This android application was created to show the corona cases in Turkey. You can use the application as daily case numbers or to track the total number of cases. The necessary graphics to be able to understand the data have also been added to the application. Prohibitions in cities are also listed in the app.
 
+<br>
+
+
+![coronaimg](https://user-images.githubusercontent.com/42109123/126911798-b92857db-8ace-47fc-8ddc-e894d4e6fd00.jpeg)
 
 
 ## Built With
 
 - Java
-- Picasso
-- RSS Feed
+- Retrofit
+- JSOUP
+- philjay mpandroidchart (https://github.com/PhilJay/MPAndroidChart)
 
 ## UI
 
