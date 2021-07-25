@@ -22,7 +22,7 @@
 
 ![newsapp](https://user-images.githubusercontent.com/42109123/126251519-dc84c425-adf8-430b-b4cc-3a27555bd7a2.gif)
 
-- Youtube : https://youtu.be/5B3_qFT_6zk
+- Youtube : https://youtu.be/G4aECF3eB8E
 
 
 
